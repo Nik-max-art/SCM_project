@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fresh Fruits - QuickCart</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
   <header>
@@ -13,47 +14,136 @@
     <nav>
       <ul>
         <li><a href="home.html">Home</a></li>
-        <li><a href="fruits.html">Fruits</a></li>
+        <li><a href="fruits.html" class="active">Fruits</a></li>
         <li><a href="vegetables.html">Vegetables</a></li>
         <li><a href="dairy.html">Dairy</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
+    <div id="cart-preview">
+      🛒 <span id="cart-count">0</span> items | $<span id="cart-total">0.00</span>
+    </div>
   </header>
 
   <main>
+    <!-- Search and Sort Controls -->
+    <section id="controls">
+      <input type="text" id="search-bar" placeholder="Search fruits...">
+      <select id="sort-option">
+        <option value="default">Sort By</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="name-asc">Name: A to Z</option>
+        <option value="name-desc">Name: Z to A</option>
+      </select>
+    </section>
+
+    <!-- Seasonal Recommendation Banner -->
+    <section id="banner">
+      <p>Seasonal Recommendation: Enjoy our fresh summer Mangoes and Watermelons!</p>
+    </section>
+
     <h2>Fresh Fruits</h2>
-    <p>Delicious, organic and freshly picked fruits delivered to your door.</p>
+    <p>Delicious, organic, and freshly picked fruits delivered to your door.</p>
     <div class="grid">
-      <div class="item">
+      <!-- Product Item: Apple -->
+      <div class="item" data-price="2.99" data-name="Apple" data-stock="true">
         <img src="img/apple.jpg" alt="Apple">
         <h3>Apple</h3>
-        <p>$2.99/kg</p>
-        <button>Add to Cart</button>
+        <p class="price">$2.99/kg</p>
+        <div class="rating">
+          <span>&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+        </div>
+        <label>Quantity: <input type="number" min="1" value="1" class="quantity"></label>
+        <p class="discount">Buy 2kg, get 10% off!</p>
+        <p class="stock-status">In Stock</p>
+        <div class="product-actions">
+          <button class="add-to-cart">Add to Cart</button>
+          <button class="wishlist">❤️</button>
+          <button class="quick-view" data-product="Apple">Quick View</button>
+        </div>
       </div>
-      <div class="item">
+
+      <!-- Product Item: Banana -->
+      <div class="item" data-price="1.20" data-name="Banana" data-stock="true">
         <img src="img/banana.jpg" alt="Banana">
         <h3>Banana</h3>
-        <p>$1.20/kg</p>
-        <button>Add to Cart</button>
+        <p class="price">$1.20/kg</p>
+        <div class="rating">
+          <span>&#9733;&#9733;&#9733;&#9734;&#9734;</span>
+        </div>
+        <label>Quantity: <input type="number" min="1" value="1" class="quantity"></label>
+        <p class="discount">Buy 3kg, get 15% off!</p>
+        <p class="stock-status">In Stock</p>
+        <div class="product-actions">
+          <button class="add-to-cart">Add to Cart</button>
+          <button class="wishlist">❤️</button>
+          <button class="quick-view" data-product="Banana">Quick View</button>
+        </div>
       </div>
-      <div class="item">
+
+      <!-- Product Item: Orange -->
+      <div class="item" data-price="2.50" data-name="Orange" data-stock="false">
         <img src="img/orange.jpg" alt="Orange">
         <h3>Orange</h3>
-        <p>$2.50/kg</p>
-        <button>Add to Cart</button>
+        <p class="price">$2.50/kg</p>
+        <div class="rating">
+          <span>&#9733;&#9733;&#9734;&#9734;&#9734;</span>
+        </div>
+        <label>Quantity: <input type="number" min="1" value="1" class="quantity"></label>
+        <p class="discount">Limited offer: Buy 2kg, get 5% off!</p>
+        <p class="stock-status">Out of Stock</p>
+        <div class="product-actions">
+          <button class="add-to-cart" disabled>Out of Stock</button>
+          <button class="wishlist" disabled>❤️</button>
+          <button class="quick-view" disabled>Quick View</button>
+        </div>
       </div>
-      <div class="item">
+
+      <!-- Product Item: Grapes -->
+      <div class="item" data-price="3.00" data-name="Grapes" data-stock="true">
         <img src="img/grapes.jpg" alt="Grapes">
         <h3>Grapes</h3>
-        <p>$3.00/kg</p>
-        <button>Add to Cart</button>
+        <p class="price">$3.00/kg</p>
+        <div class="rating">
+          <span>&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+        </div>
+        <label>Quantity: <input type="number" min="1" value="1" class="quantity"></label>
+        <p class="discount">Buy 2kg, get 10% off!</p>
+        <p class="stock-status">In Stock</p>
+        <div class="product-actions">
+          <button class="add-to-cart">Add to Cart</button>
+          <button class="wishlist">❤️</button>
+          <button class="quick-view" data-product="Grapes">Quick View</button>
+        </div>
       </div>
-      <div class="item">
+
+      <!-- Product Item: Mango -->
+      <div class="item" data-price="4.00" data-name="Mango" data-stock="true">
         <img src="img/mango.jpg" alt="Mango">
         <h3>Mango</h3>
-        <p>$4.00/kg</p>
-        <button>Add to Cart</button>
+        <p class="price">$4.00/kg</p>
+        <div class="rating">
+          <span>&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        </div>
+        <label>Quantity: <input type="number" min="1" value="1" class="quantity"></label>
+        <p class="discount">Summer Special: Extra 5% off!</p>
+        <p class="stock-status">In Stock</p>
+        <div class="product-actions">
+          <button class="add-to-cart">Add to Cart</button>
+          <button class="wishlist">❤️</button>
+          <button class="quick-view" data-product="Mango">Quick View</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick View Modal (hidden by default) -->
+    <div id="quick-view-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div id="modal-details">
+          <!-- Quick view details will be dynamically injected here via JavaScript -->
+        </div>
       </div>
     </div>
   </main>
@@ -67,4 +157,3 @@
   </footer>
 </body>
 </html>
-
