@@ -1,70 +1,118 @@
-<!-- dairy.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dairy Products - QuickCart</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dairy Products - QuickCart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font for a clean, modern look */
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333; /* Default text color */
+        }
+        /* Ensure all interactive elements and containers have rounded corners */
+        .rounded-element {
+            border-radius: 0.5rem; /* Equivalent to Tailwind's rounded-lg */
+        }
+        .card-rounded {
+            border-radius: 0.75rem; /* Equivalent to Tailwind's rounded-xl */
+        }
+        /* Basic hover effect for product cards */
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <h1>QuickCart</h1>
-    <nav>
-      <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="fruits.html">Fruits</a></li>
-        <li><a href="vegetables.html">Vegetables</a></li>
-        <li><a href="dairy.html">Dairy</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <header class="bg-white shadow-md py-4 px-6 md:px-8 lg:px-12 sticky top-0 z-10">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+            <h1 class="text-3xl font-extrabold text-indigo-700 mb-4 md:mb-0">QuickCart</h1>
+            <nav>
+                <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-lg font-medium">
+                    <li><a href="home.html" class="text-gray-700 hover:text-indigo-600 transition-colors duration-200">Home</a></li>
+                    <li><a href="fruits.html" class="text-gray-700 hover:text-indigo-600 transition-colors duration-200">Fruits</a></li>
+                    <li><a href="vegetables.html" class="text-gray-700 hover:text-indigo-600 transition-colors duration-200">Vegetables</a></li>
+                    <li><a href="dairy.html" class="text-indigo-600 font-bold border-b-2 border-indigo-600 pb-1">Dairy</a></li>
+                    <li><a href="contact.html" class="text-gray-700 hover:text-indigo-600 transition-colors duration-200">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <main>
-    <h2>Dairy Products</h2>
-    <p>Pure and fresh dairy essentials delivered to your doorstep daily.</p>
-    <div class="grid">
-      <div class="item">
-        <img src="img/milk.jpg" alt="Milk">
-        <h3>Fresh Milk</h3>
-        <p>$1.50/litre</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="item">
-        <img src="img/cheese.jpg" alt="Cheese">
-        <h3>Cheddar Cheese</h3>
-        <p>$3.50/pack</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="item">
-        <img src="img/butter.jpg" alt="Butter">
-        <h3>Salted Butter</h3>
-        <p>$2.20/pack</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="item">
-        <img src="img/curd.jpg" alt="Curd">
-        <h3>Natural Curd</h3>
-        <p>$1.80/kg</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="item">
-        <img src="img/paneer.jpg" alt="Paneer">
-        <h3>Paneer</h3>
-        <p>$4.00/500g</p>
-        <button>Add to Cart</button>
-      </div>
-    </div>
-  </main>
+    <main class="flex-grow container mx-auto px-4 py-8 md:py-12">
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-4">Dairy Products</h2>
+        <p class="text-lg text-center text-gray-600 mb-10">Pure and fresh dairy essentials delivered to your doorstep daily.</p>
 
-  <footer>
-    <div class="footer-links">
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Service</a>
-    </div>
-    <p>&copy; 2025 QuickCart. Fast, Fresh, Reliable.</p>
-  </footer>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <div class="product-card bg-white card-rounded shadow-lg overflow-hidden transition-all duration-300 ease-in-out">
+                <img src="https://placehold.co/600x400/D1C4E9/4527A0?text=Milk" alt="Milk" class="w-full h-48 object-cover rounded-t-xl">
+                <div class="p-5">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Fresh Milk</h3>
+                    <p class="text-gray-600 text-lg font-bold mb-4">$1.50/litre</p>
+                    <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-200 rounded-element">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card bg-white card-rounded shadow-lg overflow-hidden transition-all duration-300 ease-in-out">
+                <img src="https://placehold.co/600x400/FFF9C4/FBC02D?text=Cheese" alt="Cheese" class="w-full h-48 object-cover rounded-t-xl">
+                <div class="p-5">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Cheddar Cheese</h3>
+                    <p class="text-gray-600 text-lg font-bold mb-4">$3.50/pack</p>
+                    <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-200 rounded-element">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card bg-white card-rounded shadow-lg overflow-hidden transition-all duration-300 ease-in-out">
+                <img src="https://placehold.co/600x400/FFECB3/FB8C00?text=Butter" alt="Butter" class="w-full h-48 object-cover rounded-t-xl">
+                <div class="p-5">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Salted Butter</h3>
+                    <p class="text-gray-600 text-lg font-bold mb-4">$2.20/pack</p>
+                    <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-200 rounded-element">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card bg-white card-rounded shadow-lg overflow-hidden transition-all duration-300 ease-in-out">
+                <img src="https://placehold.co/600x400/E8F5E9/388E3C?text=Curd" alt="Curd" class="w-full h-48 object-cover rounded-t-xl">
+                <div class="p-5">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Natural Curd</h3>
+                    <p class="text-gray-600 text-lg font-bold mb-4">$1.80/kg</p>
+                    <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-200 rounded-element">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card bg-white card-rounded shadow-lg overflow-hidden transition-all duration-300 ease-in-out">
+                <img src="https://placehold.co/600x400/BBDEFB/1976D2?text=Paneer" alt="Paneer" class="w-full h-48 object-cover rounded-t-xl">
+                <div class="p-5">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Paneer</h3>
+                    <p class="text-gray-600 text-lg font-bold mb-4">$4.00/500g</p>
+                    <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-200 rounded-element">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6 mt-10">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-4 text-sm">
+                <a href="privacy.html" class="hover:text-indigo-400 transition-colors duration-200">Privacy Policy</a>
+                <a href="terms.html" class="hover:text-indigo-400 transition-colors duration-200">Terms of Service</a>
+            </div>
+            <p class="text-gray-400 text-sm">&copy; 2025 QuickCart. Fast, Fresh, Reliable.</p>
+        </div>
+    </footer>
 </body>
 </html>
 
